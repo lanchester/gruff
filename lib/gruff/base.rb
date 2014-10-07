@@ -1120,7 +1120,7 @@ module Gruff
       return 0 if text.nil?
       @d.pointsize = font_size
       @d.font = @font if @font
-      @d.get_type_metrics(@base_image, text.to_s).width
+      @d.get_type_metrics(@base_image, text.lines.max_by{|line| line.chomp.size}.to_s).width
     end
 
     # Used for degree => radian conversions
